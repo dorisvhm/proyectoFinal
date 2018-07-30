@@ -2,8 +2,8 @@ var module = angular.module('mpApp.public');
 
 
 module.factory('personasResource', function ($resource, comm) {
-    return $resource(comm.url +'/personas', {
-          
+    return $resource(comm.url +'/personas/:id', {
+            id : '@id'
         }, {
         'queryAll': {
             method: 'GET',
@@ -11,6 +11,9 @@ module.factory('personasResource', function ($resource, comm) {
         },
         'update' : {
             method : 'PUT'
+        },
+        'delete' : {
+            method : 'DELETE'
         }
     });
 });

@@ -44,7 +44,28 @@ module.component('personasComponent', {
             $location.path('/nuevaPersona');
         };
 
-       
+
+        this.borrarPersona = function (persona) {
+
+            var successCallback = function (data, responseHeaders) {
+                $log.info('delete persona successfuly ' + data);
+                self.searchPersonas();
+            };
+
+            var errorCallback = function (responseHeaders) {
+                $log.error('error while persisting' + responseHeaders);
+            };
+
+
+            personasResource.delete({"id": persona.id}, successCallback, errorCallback);
+
+        };
+
+        this.actualizarPersona = function (id) {
+            $log.info('persona:  ' + id);
+            $location.path('/nuevaPersona');
+        };
+
 
         self.searchPersonas();
 
