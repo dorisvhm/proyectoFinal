@@ -52,9 +52,9 @@ public class PersonaEndpointIT {
         persona.setApellidos("HERRERA");
 
         persona = target.request("application/json").post(Entity.json(persona), Persona.class);
-       // personaId = persona.getId();
+        personaId = persona.getId();
 
-        // Make sure it was correctly saved.
+     //    Make sure it was correctly saved.
 //        persona = target.path("{id}").resolveTemplate("id", personaId)
 //                .request("application/json").get(Persona.class);
 //

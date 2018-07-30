@@ -1,7 +1,6 @@
 describe('Protractor  App', function() {
 
 	var testurl = 'http://localhost:3002';
-	var alterarButton = element(by.id('alterar'));
 
 	beforeEach(function() {
 		browser.get(testurl);
@@ -12,9 +11,9 @@ describe('Protractor  App', function() {
 	});
 
 	it('should have same text', function() {
-		element(by.id('simpleText')).sendKeys('Juan Paco Pedro');
-		expect(element(by.binding('simpleModel')).getText())
-			.toEqual('Juan Paco Pedro');
+		element(by.id('nombre')).sendKeys('DORIS');
+		expect(element(by.binding('persona.nombre')).getText())
+			.toEqual('DORIS');
 	});
 
 });
