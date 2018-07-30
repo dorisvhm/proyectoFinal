@@ -1,0 +1,53 @@
+
+    <!-- Button (Double) -->    
+    <div class="form-group">
+        <table style="width: 100%">
+            <tr>
+                <td colspan="2">
+            <center>
+                <div>
+                    <table style="width: 100%">
+                        <tr>
+                      
+                            <td style="width: 10%">
+                               
+                                
+                                <button type="button" class="btn btn-success" ng-click="$ctrl.nuevaPersona()">Registrarse</button>
+                            </td>                            
+                           
+                        </tr>
+                    </table>
+                </div>
+            </center>
+            </td>
+            </tr>
+            <tr>
+               
+                <td style="width: 100%; vertical-align: top;">                    
+                    <br/>
+                    <br/>
+                    <div id="demo">
+                        <table class="table" style="width: 100%">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Identificacion</th>
+                                
+                            </tr>
+                            <tr ng-repeat="t in $ctrl.personas">
+                               
+                                <td>{{t.nombre}}</td>
+                                <td>{{t.apellidos}}</td>
+                                <td>{{t.email}}</td>
+                                <td>{{t.identificacion}}</td>
+                                
+                               
+                                
+                            </tr>
+                        </table>
+                    </div>  
+                <td>
+            </tr>
+        </table>
+    </div>
