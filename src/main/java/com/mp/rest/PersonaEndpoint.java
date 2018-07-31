@@ -36,8 +36,7 @@ public class PersonaEndpoint {
     public Response create(Persona entity) {
         personasService.create(entity);
 
-        return Response.created(UriBuilder.fromResource(PersonaEndpoint.class)
-                .path(String.valueOf(entity.getId())).build()).build();
+        return Response.ok(entity).build();
     }
 
     @GET
