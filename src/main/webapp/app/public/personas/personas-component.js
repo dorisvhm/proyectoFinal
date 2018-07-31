@@ -6,19 +6,39 @@ module.component('personasComponent', {
     bindings: {
         view: "@"
     },
-    controller: function ($log, $location, personasResource) {
+    controller: function ($log, $location, personasResource, personasResourceUpdate ) {
 
         var self = this;
         self.textoPersonaBusqueda = "";
         self.personas = "";
+        self.personas.editMode = false;
 
 
 
-        //  Promise chaining
-        this.searchPersonaByTexto = function () {
+        this.handleModeChange = function (persona) {
 
+            if (persona.editMode) {
 
+                var successCallback = function (data, responseHeaders) {
+                    $log.info('update persona successfuly ' + data);
+                    persona.editMode = !persona.editMode;
+                    self.searchPersonas();
+                };
 
+                var errorCallback = function (responseHeaders) {
+                    $log.error('error while persisting' + responseHeaders);
+                };
+
+                personasResourceUpdate.update(persona, successCallback, errorCallback);
+
+            } else {
+
+                persona.editMode = !persona.editMode;
+            }
+        };
+
+        this.reset = function (persona) {
+            persona.editMode = false;
         };
 
         this.searchPersonas = function () {
@@ -60,12 +80,6 @@ module.component('personasComponent', {
             personasResource.delete({"id": persona.id}, successCallback, errorCallback);
 
         };
-
-        this.actualizarPersona = function (id) {
-            $log.info('persona:  ' + id);
-            $location.path('/nuevaPersona');
-        };
-
 
         self.searchPersonas();
 

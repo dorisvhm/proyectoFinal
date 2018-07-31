@@ -28,26 +28,42 @@
                     <br/>
                     <div id="demo">
                         <table class="table" style="width: 100%">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Email</th>
-                                <th>Identificacion</th>
-                                
-                            </tr>
-                            <tr ng-repeat="t in $ctrl.personas">
-                               
-                                <td>{{t.nombre}}</td>
-                                <td>{{t.apellidos}}</td>
-                                <td>{{t.email}}</td>
-                                <td>{{t.identificacion}}</td>
-                                <td><button type="button" class="btn btn-primary" ng-click="$ctrl.actualizarPersona(t)">Actualizar</button></td>
-                            <td><button type="button" class="btn btn-primary" ng-click="$ctrl.borrarPersona(t)">Eliminar</button></td>
-                                
-                               
-                                
-                            </tr>
-                        </table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Identificacion</th>
+
+                        </tr>
+                        <tr ng-repeat="t in $ctrl.personas">
+
+                        <td><span ng-switch="t.editMode">
+                            <input ng-switch-when="true" type="text" ng-model="t.nombre">
+                            <span ng-switch-default>{{t.nombre}}</span>
+                        </span></td>
+                        
+                        <td><span ng-switch="t.editMode">
+                            <input ng-switch-when="true" type="text" ng-model="t.apellidos">
+                            <span ng-switch-default>{{t.apellidos}}</span>
+                        </span></td>
+                        
+                        <td><span ng-switch="t.editMode">
+                            <input ng-switch-when="true" type="text" ng-model="t.email">
+                            <span ng-switch-default>{{t.email}}</span>
+                        </span></td>
+                        
+                        <td><span ng-switch="t.editMode">
+                            <input ng-switch-when="true" type="text" ng-model="t.identificacion">
+                            <span ng-switch-default>{{t.identificacion}}</span>
+                        </span></td>
+
+                        <td><button type="button" class="btn btn-primary" ng-click="$ctrl.handleModeChange(t)">{{t.editMode ? 'Guardar' : 'Actualizar'}}</button></td>
+                        <td><button type="button" class="btn btn-primary" ng-if="t.editMode" ng-click="$ctrl.reset(t)">Cancel</button></td>
+
+                        <td><button type="button"  ng-if="!t.editMode" class="btn btn-primary" ng-click="$ctrl.borrarPersona(t)">Eliminar</button></td>
+
+                        </tr>
+                    </table>
                     </div>  
                 <td>
             </tr>

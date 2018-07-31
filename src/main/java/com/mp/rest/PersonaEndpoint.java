@@ -47,6 +47,22 @@ public class PersonaEndpoint {
         return results;
     }
 
+    @PUT
+    public Response update(Persona entity) {
+        if (entity == null) {
+            return Response.status(Status.BAD_REQUEST).build();
+        }
+
+        try {
+            entity = personasService.update(entity);
+        } catch (OptimisticLockException e) {
+            return Response.status(Response.Status.CONFLICT)
+                    .entity(e.getEntity()).build();
+        }
+
+        return Response.ok(entity).build();
+    }
+
     @GET
     @Path("/personaTexto")
     public List<Persona> listByTexto(@QueryParam("texto") String texto) {

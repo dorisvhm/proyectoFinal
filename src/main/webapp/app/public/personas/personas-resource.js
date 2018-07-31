@@ -9,11 +9,20 @@ module.factory('personasResource', function ($resource, comm) {
             method: 'GET',
             isArray: true
         },
-        'update' : {
-            method : 'PUT'
-        },
+        
         'delete' : {
             method : 'DELETE'
+        }
+    });
+});
+
+module.factory('personasResourceUpdate', function ($resource, comm) {
+    return $resource(comm.url +'/personas', {
+           
+        }, {
+       
+        'update' : {
+            method : 'PUT'
         }
     });
 });
