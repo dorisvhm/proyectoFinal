@@ -1,0 +1,63 @@
+<div id="personas">    
+    <form name="nabform" class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Personas</legend>
+            <!-- Text input-->
+
+            <!-- Text input-->
+            <div class="form-group" ng-class="{ 'has-error': nabform.nombre.$invalid }">
+                <label class="col-md-4 control-label" for="nombre">Nombre:</label>  
+                <div class="col-md-4">
+                    <input id="nombre" name="nombre" ng-model="$ctrl.persona.nombre" placeholder="nombre" class="form-control input-md" required="" type="text" />
+
+                </div>
+            </div>
+            
+
+            <div class="form-group" ng-class="{ 'has-error': nabform.apellidos.$invalid }">
+                <label class="col-md-4 control-label" for="apellidos">Apellidos:</label>  
+                <div class="col-md-4">
+                    <input id="nombre" name="apellidos" ng-model="$ctrl.persona.apellidos" placeholder="apellidos" class="form-control input-md" required="" type="text" />
+
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error': nabform.email.$invalid }">
+                <label class="col-md-4 control-label" for="email">Email:</label>  
+                <div class="col-md-4">
+                    <input id="nombre" name="email" ng-model="$ctrl.persona.email" placeholder="email" class="form-control input-md" required="" type="text" />
+
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error': nabform.identificacion.$invalid }">
+                <label class="col-md-4 control-label" for="identificacion">Identificacion:</label>  
+                <div class="col-md-4">
+                    <input id="nombre" name="identificacion" ng-model="$ctrl.persona.identificacion" placeholder="identificacion" class="form-control input-md" required="" type="text" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ok"></label>
+                <div class="col-md-8">
+
+
+
+                    <button id="ok" name="ok" class="btn btn-success" ng-click="$ctrl.savePersonas()" ng-disabled="nabform.$invalid">Aceptar</button>
+
+                    <button id="cancel" name="cancel" class="btn btn-danger" ng-click="$ctrl.cancelPersona()" >Cancelar</button>
+
+
+
+                </div>
+            </div>
+
+
+
+        </fieldset>
+    </form>
+
+</div>

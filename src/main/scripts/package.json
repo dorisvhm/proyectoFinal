@@ -1,9 +1,9 @@
 {
-  "name": "angulardemo",
+  "name": "angular",
   "version": "0.0.1",
   "description": "Demostracion proyecto Angular MP",
   "main": "index.js",
-  "author": "Victor Orozco",
+  "author": "Doris Herrera",
   "license": "MIT",
   "private": true,
   "dependencies": {

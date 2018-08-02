@@ -1,6 +1,6 @@
 describe('Protractor  App', function() {
 
-	var testurl = 'http://localhost:3002';
+	var testurl = 'http://localhost:3000';
 
 	beforeEach(function() {
 		browser.get(testurl);
@@ -10,10 +10,10 @@ describe('Protractor  App', function() {
 		expect(browser.getTitle()).toEqual('MP');
 	});
 
-	it('should have same text', function() {
-		element(by.id('nombre')).sendKeys('DORIS');
-		expect(element(by.binding('persona.nombre')).getText())
-			.toEqual('DORIS');
-	});
+//	it('should have same text', function() {
+//		element(by.id('nombre')).sendKeys('DORIS');
+//		expect(element(by.binding('persona.nombre')).getText())
+//			.toEqual('DORIS');
+//	});
 
 });
